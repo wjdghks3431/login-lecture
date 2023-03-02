@@ -1,2 +1,2 @@
 #login-lecture
-백엔드 연
+백엔드 연습

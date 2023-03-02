@@ -26,14 +26,16 @@ const express = require("express");
 const app = express();
 
 
+
 // 라우팅
 const home = require("./src/routes/home");
 
 // 앱 세팅
 app.set("views",'./src/views');//view 엔지 세팅(폴더)
 app.set("view engine", "ejs"); // view 엔진으로 ejs활용 html 해석
-
-
+app.use(express.static(`${__dirname}/src/public`));
+//express메서등 중에서 stacid 메서드에 정적 경로 디렉토리 네임 src pubilc 정적 경로로 추가함
+//디렉토리 네임의 위치를 변환함 src/public경로로 변환
 app.use("/",home); // use - > 미들웨어를 등록해주는 메서드.
 
 

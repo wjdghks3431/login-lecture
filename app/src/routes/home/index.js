@@ -6,9 +6,8 @@ const router = express.Router();
 //경로 설정
 const ctrl = require("./home.ctrl");
 
-router.get("/", ctrl.index);
-
-// '/'는 필수로 입력 
-router.get("/login", ctrl.login);
+router.get("/", ctrl.output.index);
+router.get("/login", ctrl.output.login);
+router.post("/login", ctrl.process.login);
 
 module.exports = router;

@@ -23,6 +23,7 @@
 
 // 모듈
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 
 
@@ -36,6 +37,11 @@ app.set("view engine", "ejs"); // view 엔진으로 ejs활용 html 해석
 app.use(express.static(`${__dirname}/src/public`));
 //express메서등 중에서 stacid 메서드에 정적 경로 디렉토리 네임 src pubilc 정적 경로로 추가함
 //디렉토리 네임의 위치를 변환함 src/public경로로 변환
+
+app.use(bodyParser.json());
+// URL을 통해 전달되는 데이터에 한글, 공백 등과 같은 문자가 포함될 경우 제대로 인식되지 않는 문제 해결
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use("/",home); // use - > 미들웨어를 등록해주는 메서드.
 
 

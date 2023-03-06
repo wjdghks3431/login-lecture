@@ -46,6 +46,7 @@ function login(){
         id: id.value,
         psword: psword.value,
     };
+
     fetch("/login", {
         method: "POST",
         headers: {
@@ -57,7 +58,7 @@ function login(){
     .then((res) => {
         if(res.success) {
             location.href = "/";
-        } else{
+        } else {
             alert(res.msg);
         }
 })

@@ -21,8 +21,13 @@ const process={
         const user = new User(req.body);
         const response = user.login();
         console.log(response);
-
     },
+    register: (req, res) => { 
+        const user = new User(req.body);
+        const response = user.register();
+        console.log(response);
+    },
+
 
 //     login: (req,res) =>{
 //         const id = req.body.id,
